@@ -1,0 +1,4 @@
+# GitHub logins allowed to approve merges with Wavekey (phone approval).
+# No file = PR author only. Add or remove approvers with a pull request.
+approvers:
+  - Everlinkdev
