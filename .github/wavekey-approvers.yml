@@ -1,8 +1,10 @@
 # Wavekey merge approvers
 #
 # GitHub logins allowed to approve merging a pull request into a protected
-# branch with Wavekey: open the PR's "WaveKey present-human approval" check,
-# click Details, then "Approve with my phone" and tap the phone notification.
+# branch with Wavekey. Open the PR on GitHub in a browser signed in to Wavekey
+# (extension 0.7.0+): the extension starts the approval, your phone gets
+# "Approve merge", and you tap it while the PR tab stays in front. The check's
+# Details link opens an approval page with "Approve with my phone" as a fallback.
 #
 # Rules (enforced by lib/gitMergeApprovers.js in oidc-wavekey-demo):
 #   - No file:   only the PR author can approve.
@@ -32,3 +34,4 @@
 
 approvers:
   - Everlinkdev
+  - skybella
