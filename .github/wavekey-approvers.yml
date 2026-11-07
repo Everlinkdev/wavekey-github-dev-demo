@@ -1,4 +1,34 @@
-# GitHub logins allowed to approve merges with Wavekey (phone approval).
-# No file = PR author only. Add or remove approvers with a pull request.
+# Wavekey merge approvers
+#
+# GitHub logins allowed to approve merging a pull request into a protected
+# branch with Wavekey: open the PR's "WaveKey present-human approval" check,
+# click Details, then "Approve with my phone" and tap the phone notification.
+#
+# Rules (enforced by lib/gitMergeApprovers.js in oidc-wavekey-demo):
+#   - No file:   only the PR author can approve.
+#   - This file: only the logins listed under `approvers:` can approve.
+#                The PR author can approve their own PR only if listed.
+#   - An empty or invalid list blocks every approval until it's fixed.
+#   - Approvers also need write access to this repo (invite as collaborators).
+#   - Read from the default branch: changes take effect once merged.
+#
+# Format: an `approvers:` key followed by one "- login" per line (a leading
+# "@" is allowed). Comments are fine; any other key or syntax makes the file
+# invalid.
+#
+# Examples (commented out, so they are NOT approvers):
+#
+#   approvers:
+#     - alice-lead          # tech lead
+#     - @bob-security       # security reviewer (leading @ is optional)
+#     - carol-release       # release manager
+#
+# Two-person rule example: list the reviewers but not the people who usually
+# author PRs, so authors can't approve their own changes.
+#
+# Production note: protect this file with CODEOWNERS so changes need an owner's
+# review, and require approvers to link GitHub via OAuth (the dev service
+# accepts a typed-in GitHub username at sign-in for demos).
+
 approvers:
   - Everlinkdev
